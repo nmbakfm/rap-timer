@@ -1,6 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ArduinoReceiver.h"
+
+
+#define USB_MODEM "/dev/tty.usbmodem411"
+#define RATE 9600
+#define LANE_NUM 3
 
 class ofApp : public ofBaseApp{
 
@@ -18,5 +24,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+    
+    ArduinoReceiver * ard;
+    
+    int pMillis[LANE_NUM];
+    int millis[LANE_NUM];
+    int rap[LANE_NUM];
 };
